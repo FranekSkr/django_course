@@ -1,19 +1,19 @@
 from django.shortcuts import render
+from .models import Feature
 
 # Create your views here.
 
 
 def index(request):
+    features = Feature.objects.all()
     context = {
-        'name': 'Franek',
-        'age': 16,
-        'surname': 'Skrobot'
+        'features': features
     }
     return render(request, 'index.html', context)
 
 
 def counter(request):
-    words = request.GET['text']
+    words = request.POST['text']
     context = {
         'words': len(words.split())
     }

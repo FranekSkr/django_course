@@ -1,17 +1,21 @@
-<!doctype html>
+{% load static %}
+
+
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Course</title>
 </head>
 <body>
-    <h1>Input your text below:</h1>
-    <form method="" action="counter">
-        <textarea name="text" id="" rows="25" cols="70"></textarea><br>
-        <input type="submit" value="Submit">
+    <h1>Witaj na mojej stronie !</h1>
+    {% for feature in features%}
+        {{feature.name}}<br>
+        {{feature.details}}<br>
+    {% endfor %}
     </form>
 </body>
 </html>

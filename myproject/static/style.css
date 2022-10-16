@@ -1,3 +1,29 @@
-h1{
+body{
+    background: #343434;
+}
+div{
+    width: 500px;
+    height:500px;
+    margin:200px auto;
+
+}
+div h1{
+        color:#fff;
+        text-align: center;
+}
+p{
+    color: #fff;
+    margin: 10px auto;
+    text-align: center;
+}
+
+input{
+    background: #343434;
+    border:2px solid #5EDFFF88;
+    margin:10px;
+    margin-left:160px;
+}
+
+h5{
     color:red;
 }

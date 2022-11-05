@@ -7,10 +7,7 @@ from .models import Feature
 
 
 def index(request):
-    features = Feature.objects.all()
-    context = {
-        'features': features
-    }
+    context = {}
     return render(request, 'index.html', context)
 
 
@@ -45,3 +42,29 @@ def register(request):
             return redirect('register')
     else:
         return render(request, 'register.html')
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'wrong username or password')
+            return redirect('login')
+    else:
+        return render(request, 'login.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('index')
+
+
+def post(request, pk):
+    return render(request, 'post.html', {'pk':pk})
